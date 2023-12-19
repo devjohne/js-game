@@ -6,7 +6,7 @@ let tentativas = 1;
 function exibirTextoNaTela(tag, texto) {
   let campo = document.querySelector(tag);
   campo.innerHTML = texto;
-  responsiveVoice.speak(texto, "Brazilian Portuguese Female", { rate: 1.2 });
+  //responsiveVoice.speak(texto, "Brazilian Portuguese Female", { rate: 1.2 });
 }
 
 function exibirMensagemInicial() {
@@ -47,7 +47,7 @@ function gerarNumeroAleatorio() {
 
   //if(true) => chama a função recursivamente.
   if (listaDeNmerosSorteados.includes(numeroEscolhido)) {
-    // retorna a função recursivamente até o numero escolhido ser falso
+    // enqunto numero escolhido retornar true, faz a recursão
     return gerarNumeroAleatorio();
   } else {
     listaDeNmerosSorteados.push(numeroEscolhido);
