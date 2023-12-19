@@ -1,10 +1,12 @@
 let listaDeNmerosSorteados = []; //Lista vazia
+let numeroLimite = 10;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 
 function exibirTextoNaTela(tag, texto) {
   let campo = document.querySelector(tag);
   campo.innerHTML = texto;
+  responsiveVoice.speak(texto, "Brazilian Portuguese Female", { rate: 1.2 });
 }
 
 function exibirMensagemInicial() {
@@ -35,7 +37,14 @@ function verificarChute() {
 }
 
 function gerarNumeroAleatorio() {
-  let numeroEscolhido = parseInt(Math.random() * 4 + 1);
+  let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
+  let qtdElementosDaLista = listaDeNmerosSorteados.length();
+
+  //Verifica se a lista está cheia, limpa lista;
+  if (qtdElementosDaLista == numeroLimite) {
+    listaDeNmerosSorteados = [];
+  }
+
   //if(true) => chama a função recursivamente.
   if (listaDeNmerosSorteados.includes(numeroEscolhido)) {
     // retorna a função recursivamente até o numero escolhido ser falso
